@@ -1,0 +1,15 @@
+{
+  "sensors": [
+    2,
+    3,
+    5
+  ],
+  "mode": "memory",
+  "best_epoch": 1489,
+  "raw_mean": 0.2881331733122238,
+  "p95": 0.7119602087762334,
+  "coverage": 0.9674640486042739,
+  "mean_penalty": 0.2299427225197701,
+  "sensor_reduction": 0.4,
+  "pareto": true
+}

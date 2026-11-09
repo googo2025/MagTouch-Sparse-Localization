@@ -1,0 +1,60 @@
+{
+  "frozen_locator_sha256": "aae6761216e1946678120317d55dc8caa3b0f325c42c6a14838cd177a15355d3",
+  "source_reports": [
+    {
+      "variant": "101A",
+      "source_sha256": "d3ac7710dccd4c57d82740ce2df57e0825bb5fce0536db86984ebff92f46c9fd",
+      "terminal_checkpoint_sha256": "2574249980a8d7f036032180547fef0be42b2c1cf4c3fbd7bb42c63e0a2773a1"
+    },
+    {
+      "variant": "101B",
+      "source_sha256": "fc6524209e13bb3a47f9b80bf23a99db84d7ad04cc2c8fb4249b02201a385fc1",
+      "terminal_checkpoint_sha256": "a964fecdb76b58b5caaf850075fa3494b1a308008620952253d2d311745c9f76"
+    },
+    {
+      "variant": "101C",
+      "source_sha256": "f5610f755fbbaa5c77949587563adc49a094dad3a35f883350e41cde12a027a5",
+      "terminal_checkpoint_sha256": "b17ec4e1cc89a0f590fa8ec386b80316c078089680f3c4ef39bec42efa0cd4e0"
+    },
+    {
+      "variant": "202A",
+      "source_sha256": "f2be02848e413b9353ec2e10c60e9abfeef4effe625c98001d006e846dcacc2d",
+      "terminal_checkpoint_sha256": "836f914fc623dba8210e98e97619d54bc46992c3945ea82c89b051e9578c159a"
+    },
+    {
+      "variant": "202B",
+      "source_sha256": "5070ad4141ecf15eb86bb39252e97bbb04b48c116f4cb4cb31b3dcb302980cd7",
+      "terminal_checkpoint_sha256": "9d174be5ad60cdc5045a698ef0824003eb63677fa05b6d71db62b551e00ee810"
+    },
+    {
+      "variant": "202C",
+      "source_sha256": "60dd15ebd65b00e846823246e5e2d8b888b1d2787a8d286ec88201d9a2ab1f80",
+      "terminal_checkpoint_sha256": "039ef9e3c4860764cc41532c9de69f88ef8b0ce5c080c5cd6c4bb6014030e366"
+    },
+    {
+      "variant": "303A",
+      "source_sha256": "2cc9a45c4f322da87bbaa3c49105e719349007ccbbf87f8f5b1ef18d4215d1da",
+      "terminal_checkpoint_sha256": "c91b0401864f12a9798ea80a2fc4a1393a186ba2ba1f255fe02c9702eb3b4c6e"
+    },
+    {
+      "variant": "303B",
+      "source_sha256": "79f12203edc74f3f16cdc2c0ff467bfa37b975c7ed4a9847c8e57f8420ead7d7",
+      "terminal_checkpoint_sha256": "34dba20bb4060a1e71713b41e7a51a26c530fef164fd86c839d857c59b96381d"
+    },
+    {
+      "variant": "303C",
+      "source_sha256": "0934a944b9e803b19dc137814876cd4155510b1a0e6bc05781ca235fb446c78a",
+      "terminal_checkpoint_sha256": "9e17ed602854d6e42eeaa83e9194ba40371047902d98caa5669dad78f063850c"
+    },
+    {
+      "variant": "M",
+      "source_sha256": "b94edc048b22cf6627ddf7367f03c36b0a862df8c11140816d719cc9a0ca90bc",
+      "terminal_checkpoint_sha256": null
+    }
+  ],
+  "layout_source_sha256": "d10641b157d45bd622910c273da122fb2497fb7308fed1fa5c0e88749acde525",
+  "historical_layout_screen_sha256": "cf41f093070c52a6f8f5d4bb3ec95be230655c685926d4476fdae88fe951e65d",
+  "anonymized_sequences": true,
+  "checkpoint_epoch": 1500,
+  "optimization_updates_during_replay": 0
+}
