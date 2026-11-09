@@ -120,7 +120,28 @@ Figure 7. Circular scanning. The XY view shows the closed circular path, paired 
 
 Figure 8. Combined XYZ motion. XY and native-time depth show the position and indentation variation. Supplementary Fig. S4 shows the orthographic three-dimensional view. The top row shows equal-scale XY and the bottom row shows indentation on the native timeline.
 
+### 3.5 Full supervision reduced the change in estimated silicone and magnet states
+
+To evaluate the effect of sensor reduction on the estimated mechanical state, we queried the frozen recurrent shared displacement field at epoch 1500 for seed 101. We reused the four development sequences displayed in Figs. 5–8. The model encoded each native magnetic sequence with the original reset flags. Nine matched frames per sequence comprised both record endpoints, six positions sampled across eligible frames and the nominal peak-depth frame. At each frame, we queried 988 registered surface nodes and 175 physical probes used to derive the 25 magnet poses. We compared the estimated displacement vectors and magnet centers with the five-input model A using RMS Euclidean differences over sampled points and frames, and averaged the relative rotation angles over magnets and frames. Recomputed magnetic predictions agreed with the archived outputs within 0.000475 µT in maximum absolute component difference.
+
+Across all four sequences, B was closer to A than C for surface displacement, magnet-center position and magnet orientation (Table 3). The surface RMS difference was 0.491–0.562 mm for B and 0.682–0.737 mm for C. Figure 9 compares the estimated surface and magnet poses at matched nominal peak depths. The combined XYZ demonstration shows the nine original sampled states at time-compressed intervals. The five-input estimate is the comparator. The recorded sequences lack independent measurements of the silicone displacement field and magnet poses, so these differences quantify agreement with A in this four-sequence, single-seed diagnostic.
+
+Table 3. Differences from the estimated five-input state (A) at matched frames. Columns show B and C relative to A.
+
+| Action | Surface RMS B (mm) | Surface RMS C (mm) | Center RMS B (mm) | Center RMS C (mm) | Mean angle B (°) | Mean angle C (°) |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Grid indentation | 0.491 | 0.706 | 0.467 | 0.892 | 3.90 | 5.45 |
+| Straight sweeps | 0.513 | 0.698 | 0.476 | 0.856 | 3.80 | 5.17 |
+| Circular scan | 0.519 | 0.737 | 0.470 | 0.884 | 3.83 | 5.58 |
+| Combined XYZ | 0.562 | 0.682 | 0.509 | 0.858 | 4.00 | 5.49 |
+
+![Figure 9. Estimated silicone surface displacement and internal magnet motion at the nominal peak-depth frame in each of the four matched sequences. Identical orthographic projection, physical axis scaling and color range are used across arms. Colored points show the estimated surface, gold outlines show estimated magnets and gray outlines show nominal magnet positions. Displacement scale is one.](Shape_comparison_EN.png)
+
+Figure 9. Estimated silicone surface displacement and internal magnet motion at the nominal peak-depth frame in each of the four matched sequences. Identical orthographic projection, physical axis scaling and color range are used across arms. Colored points show the estimated surface, gold outlines show estimated magnets and gray outlines show nominal magnet positions. Displacement scale is one.
+
 ## 4 Discussion
+
+The matched shape diagnostic extends the localization comparison to the state that generates the field. Under the shared-field representation, changing the supervision scope also altered estimated surface displacement and magnet motion. Independent displacement and pose measurements would be needed to determine how much of the difference reflects physical accuracy.
 
 The observed effects arise along two paths. With full supervision retained, reducing spatial observations makes reconstruction and localization harder. Here the relative P95 increase exceeded the relative mean increase. Training only at retained nodes also removes direct constraints on reconstructed values at omitted locations. The frozen localizer still consumes those outputs for contact and coordinates, so improved fit at retained nodes does not ensure a reliable interface. The omitted-node errors and false-contact behavior support this interpretation. The study did not measure causal sensitivities to individual node perturbations or separate the effects of supervision count and supervision location.
 

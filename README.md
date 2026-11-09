@@ -10,6 +10,18 @@ Research companion for **From Five to Three: Spatial Sampling and Training Super
 
 The original five-node CSML localizer remains frozen. The fixed 1500-epoch comparison separates reducing online input from removing supervision at omitted nodes. At common five-node supervision, reducing the input to S2/S3/S5 increased domain-balanced raw mean error by 0.060 mm and sequence P95 by 0.236 mm. Three-node-only supervision instead yielded false-contact declarations on all nominal lifts across the three trained seeds. Layout screening with measured retained nodes and reconstructed omitted nodes is reported separately from fully reconstructed replay.
 
+## 3D silicone deformation and magnet motion
+
+The paired shared-field diagnostic follows the four motion sequences in §3.5. With S2/S3/S5 input, retaining five-node supervision yielded estimates closer to the five-input model across all four sequences. The comparison uses seed 101 at epoch 1500 and evaluates model-to-model agreement. The records do not contain independent measurements of the displacement field or magnet poses.
+
+![Animated XYZ sequence comparing estimated silicone surfaces and magnet poses across the three input and supervision conditions](paper/XYZ_deformation_demo.gif)
+
+The animation plays nine native states with time intervals compressed by approximately 6×. It uses the same view, physical scale and displacement colors for all three conditions.
+
+![Four matched nominal peak-depth frames showing the three estimated silicone surfaces and magnet arrays](paper/Shape_comparison_EN.png)
+
+[Shape diagnostic and animation timing](data/shape_state_diagnostic.json) · [中文形变图](paper/Shape_comparison_ZH.png)
+
 ## Five-node reference repositories
 
 | Source | Role here |

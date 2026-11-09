@@ -2,3 +2,4 @@
 *.png -text
 *.pdf -text
 *.docx -text
+*.gif -text

@@ -1,0 +1,164 @@
+{
+  "checkpoint_epoch": 1500,
+  "seed": 101,
+  "independent_physical_truth": false,
+  "aggregation": "RMS Euclidean difference versus the five-input A estimate across matched native frames and points; relative rotation angle averaged across frames and magnets.",
+  "probes_per_frame": 175,
+  "magnet_count": 25,
+  "optimizer_updates": 0,
+  "maximum_magnetic_prediction_difference_uT": 0.0004743442713817103,
+  "matched_sequences": {
+    "grid": {
+      "trial": "trial_0057",
+      "frames": [
+        0,
+        288,
+        312,
+        1334,
+        2548,
+        3746,
+        4927,
+        6139,
+        6402
+      ],
+      "surface_nodes": 988,
+      "comparisons": {
+        "B": {
+          "surface_rms_difference_mm": 0.4905754625797272,
+          "magnet_center_rms_difference_mm": 0.46683041427464766,
+          "magnet_rotation_mean_difference_deg": 3.8986167885742
+        },
+        "C": {
+          "surface_rms_difference_mm": 0.7055274248123169,
+          "magnet_center_rms_difference_mm": 0.8917685400427908,
+          "magnet_rotation_mean_difference_deg": 5.4474214528767435
+        }
+      }
+    },
+    "lines": {
+      "trial": "trial_0342",
+      "frames": [
+        0,
+        151,
+        203,
+        1035,
+        1919,
+        3023,
+        3907,
+        4791,
+        5029
+      ],
+      "surface_nodes": 988,
+      "comparisons": {
+        "B": {
+          "surface_rms_difference_mm": 0.5125250816345215,
+          "magnet_center_rms_difference_mm": 0.4759925843709498,
+          "magnet_rotation_mean_difference_deg": 3.801499230954486
+        },
+        "C": {
+          "surface_rms_difference_mm": 0.698443591594696,
+          "magnet_center_rms_difference_mm": 0.8561501402699387,
+          "magnet_rotation_mean_difference_deg": 5.168487265698633
+        }
+      }
+    },
+    "circle": {
+      "trial": "trial_0287",
+      "frames": [
+        0,
+        151,
+        179,
+        669,
+        1187,
+        2053,
+        2571,
+        3089,
+        3478
+      ],
+      "surface_nodes": 988,
+      "comparisons": {
+        "B": {
+          "surface_rms_difference_mm": 0.5188083052635193,
+          "magnet_center_rms_difference_mm": 0.4697300239115844,
+          "magnet_rotation_mean_difference_deg": 3.8348844451763178
+        },
+        "C": {
+          "surface_rms_difference_mm": 0.7369027733802795,
+          "magnet_center_rms_difference_mm": 0.8835110983466181,
+          "magnet_rotation_mean_difference_deg": 5.575709326707522
+        }
+      }
+    },
+    "xyz": {
+      "trial": "trial_0330",
+      "frames": [
+        0,
+        201,
+        295,
+        356,
+        390,
+        1017,
+        1112,
+        1207,
+        1664
+      ],
+      "surface_nodes": 988,
+      "comparisons": {
+        "B": {
+          "surface_rms_difference_mm": 0.5621098279953003,
+          "magnet_center_rms_difference_mm": 0.5090183046258344,
+          "magnet_rotation_mean_difference_deg": 3.9982965455331314
+        },
+        "C": {
+          "surface_rms_difference_mm": 0.6818773746490479,
+          "magnet_center_rms_difference_mm": 0.8583429440801272,
+          "magnet_rotation_mean_difference_deg": 5.492172032502839
+        }
+      }
+    }
+  },
+  "animation": {
+    "native_frames": [
+      0,
+      201,
+      295,
+      356,
+      390,
+      1017,
+      1112,
+      1207,
+      1664
+    ],
+    "native_seconds": [
+      0.0,
+      6.4262803,
+      9.008586,
+      10.8526873,
+      11.9302594,
+      28.3668494,
+      31.383486,
+      34.213313,
+      44.6322146
+    ],
+    "gif_durations_ms": [
+      1070,
+      430,
+      310,
+      180,
+      2740,
+      500,
+      470,
+      1740,
+      1100
+    ],
+    "native_interval_speed_factor": 6.0,
+    "end_hold_ms": 1100,
+    "interpolation": false,
+    "animation_color_limit_mm": 3,
+    "file_sha256": {
+      "Shape_comparison_EN.png": "832f79910564e01822f4efaac00b0047833a90a97e23653c46585bc806895461",
+      "XYZ_deformation_demo.gif": "7d97424a0974abd5742fe9800a2ced203c6929e35e1a4a3fc992511b68e8d51f",
+      "Shape_comparison_ZH.png": "e9f78658c08c39f2c7e4a2f78429c728d73bf6742b43b5332ec797b36bfb4c4f"
+    }
+  }
+}
