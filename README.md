@@ -14,9 +14,17 @@ The original five-node CSML localizer remains frozen. The fixed 1500-epoch compa
 
 The paired shared-field diagnostic follows the four motion sequences in §3.5. With S2/S3/S5 input, retaining five-node supervision yielded estimates closer to the five-input model across all four sequences. The comparison uses seed 101 at epoch 1500 and evaluates model-to-model agreement. The records do not contain independent measurements of the displacement field or magnet poses.
 
-![Animated XYZ sequence comparing estimated silicone surfaces and magnet poses across the three input and supervision conditions](paper/XYZ_deformation_demo.gif)
+### Full sequences at their original speed
 
-The animation plays nine native states with time intervals compressed by approximately 6×. It uses the same view, physical scale and displacement colors for all three conditions.
+The full MP4s preserve all **16,577 native frames** and the original frame intervals. In each frame, A, B and C share one timestamp, camera, physical scale and displacement color range. The inline previews play at the same speed with fewer frames for browser display. Select a preview to open its complete video.
+
+| Grid indentation · 6,403 frames · 2:37 | Multi-direction straight sweeps · 5,030 frames · 2:31 |
+| --- | --- |
+| [![Grid indentation preview](paper/native-shape/grid_preview.webp)](paper/native-shape/grid_native.mp4) | [![Multi-direction straight-sweep preview](paper/native-shape/lines_preview.webp)](paper/native-shape/lines_native.mp4) |
+| **Circular scanning · 3,479 frames · 1:43** | **Combined XYZ motion · 1,665 frames · 0:45** |
+| [![Circular scan preview](paper/native-shape/circle_preview.webp)](paper/native-shape/circle_native.mp4) | [![Combined XYZ preview](paper/native-shape/xyz_preview.webp)](paper/native-shape/xyz_native.mp4) |
+
+[Native-frame timing verification](data/native_shape_video_receipt.json) · [Earlier nine-state overview](paper/XYZ_deformation_demo.gif)
 
 ![Four matched nominal peak-depth frames showing the three estimated silicone surfaces and magnet arrays](paper/Shape_comparison_EN.png)
 

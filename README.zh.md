@@ -18,9 +18,17 @@
 
 论文第 3.5 节比较四条同序列记录的估计硅胶表面和内部 25 片磁片。对固定 1500 轮的种子 101，S2/S3/S5 输入保留五点监督时，四类动作的机械状态估计均更接近五点模型。差异衡量模型间一致性。记录中没有独立实测的硅胶位移场或磁片位姿。
 
-![XYZ 联合运动的九个原生状态，比较三组硅胶形变与磁片运动](paper/XYZ_deformation_demo.gif)
+### 四类动作按原速连续回放
 
-动画按约 6 倍速压缩原生帧间隔。三组共用视角、物理比例和位移色标。
+完整 MP4 共保留 **16,577 个原生帧**与原始帧间隔。每个画面中的 A、B、C 共用时间戳、视角、物理比例和位移色标。首页预览保留原速并降低帧率，点击预览可打开全帧视频。
+
+| 点阵触压 · 6,403 帧 · 2:37 | 多向直线 · 5,030 帧 · 2:31 |
+| --- | --- |
+| [![点阵触压预览](paper/native-shape/grid_preview.webp)](paper/native-shape/grid_native.mp4) | [![多向直线预览](paper/native-shape/lines_preview.webp)](paper/native-shape/lines_native.mp4) |
+| **圆形扫描 · 3,479 帧 · 1:43** | **XYZ 联合运动 · 1,665 帧 · 0:45** |
+| [![圆形扫描预览](paper/native-shape/circle_preview.webp)](paper/native-shape/circle_native.mp4) | [![XYZ 联合运动预览](paper/native-shape/xyz_preview.webp)](paper/native-shape/xyz_native.mp4) |
+
+[原生帧时序验收](data/native_shape_video_receipt.json) · [早期九帧概览](paper/XYZ_deformation_demo.gif)
 
 ![四类动作的名义峰深帧，比较三组硅胶形变和磁片运动](paper/Shape_comparison_ZH.png)
 

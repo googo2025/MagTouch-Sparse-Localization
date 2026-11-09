@@ -3,3 +3,5 @@
 *.pdf -text
 *.docx -text
 *.gif -text
+*.mp4 -text
+*.webp -text
