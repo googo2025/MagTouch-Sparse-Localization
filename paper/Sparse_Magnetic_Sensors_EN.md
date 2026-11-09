@@ -68,20 +68,34 @@ Figure 3. Paired difference between three and five inputs under common five-node
 
 ### 3.3 Retained-node supervision improved local field fit while degrading localization
 
-At the same three inputs, C reduced the retained-node development MSE by 93.3%–94.4% across seeds (Supplementary Fig. S2), while errors increased at omitted nodes. In seed 202, RMSE at S1 and S4 rose from 13.5 and 10.4 µT to 418.2 and 125.8 µT, respectively (Fig. 4a). Under the same localizer, C increased mean localization error over B by 5.229 mm (4.810–5.669). All three C runs classified all 91,863 nominal lifted frames as contact. Accepted coverage reached 100%, yet only 0.34% of eligible targets were accepted within 0.5 mm, compared with 86.56% for B (Fig. 4b). Zero misses and higher accepted coverage thus coincided with loss of contact specificity and spatial accuracy.
+At the same three inputs, C reduced the retained-node development MSE by 93.3%–94.4% across seeds (Supplementary Fig. S2), while errors increased at omitted nodes. In seed 202, RMSE at S1 and S4 rose from 13.5 and 10.4 µT to 418.2 and 125.8 µT, respectively (Fig. 4a). Under the same localizer, C increased mean localization error over B by 5.229 mm (4.810–5.669). All three C runs classified all 91,863 nominal lifted frames as contact. Accepted coverage reached 100%, yet only 0.34% of eligible targets were accepted within 0.5 mm, compared with 85.26% for B (Fig. 4b). Zero misses and higher accepted coverage thus coincided with loss of contact specificity and spatial accuracy.
 
 Table 1. Frozen localization at the fixed 1500-epoch endpoint. A, B and C are means across the three paired seeds.
 
 | Condition | Mean (mm) | P95 (mm) | Coverage (%) | Accepted ≤0.5 mm (%) | Miss (%) | False contact (%) |
 |---|---:|---:|---:|---:|---:|---:|
-| Measured five | 0.234 | 0.530 | 97.94 | 91.64 | 0.97 | 2.10 |
-| A 5 in / 5 sup. | 0.235 | 0.532 | 97.93 | 91.52 | 0.96 | 2.12 |
-| B 3 in / 5 sup. | 0.294 | 0.768 | 96.72 | 86.56 | 1.84 | 1.94 |
+| Measured five | 0.234 | 0.530 | 97.94 | 90.70 | 0.97 | 2.10 |
+| A 5 in / 5 sup. | 0.235 | 0.532 | 97.93 | 90.57 | 0.96 | 2.12 |
+| B 3 in / 5 sup. | 0.294 | 0.768 | 96.72 | 85.26 | 1.84 | 1.94 |
 | C 3 in / 3 sup. | 5.524 | 8.107 | 100.00 | 0.34 | 0.00 | 100.00 |
 
 ![Figure 4 Omitted-node error and accepted output](Failure_modes_EN.png)
 
 Figure 4. Omitted-node supervision and downstream performance at fixed three-node input. (a) Node RMSE pooled over valid components for seed 202, with omitted input nodes shaded. (b) Accepted coverage and the fraction accepted within 0.5 mm, using the same eligible position targets.
+
+### 3.4 Matched trajectories show where errors occur
+
+Figures 5 and 6 compare measured five-node input (M) with A, B and C at seed 101 against a common nominal reference. Eligible display sequences had at least 300 position targets, at least 90% accepted coverage for both M and B, at least 4 mm nominal span on one XY axis and at least 0.5 mm maximum absolute nominal indentation. Among 27 such sequences, we selected the hemispherical sequence closest to the median B−M raw P95 increase and the rounded sequence with the largest increase. Selection is for display. The overall evaluation retains all 97 sequences.
+
+In the typical hemispherical sequence, B increased P95 by 0.105 mm relative to measured input. In the high-penalty rounded sequence, B increased P95 by 1.704 mm, showing that larger errors can concentrate in particular segments. C could be accepted continuously despite deviating from both the nominal XY path and indentation profile. Plots show raw coordinates and leave gaps at rejected frames. Sequence metrics use the same eligible targets across variants.
+
+![Figure 5 Typical hemispherical trajectory](Trajectory_median_EN.png)
+
+Figure 5. Typical moving hemispherical sequence. The top row shows equal-scale XY and the bottom row shows indentation on the native timeline. All variants share axes. Headings report raw and constant-offset diagnostic means and accepted coverage.
+
+![Figure 6 High-penalty rounded trajectory](Trajectory_tail_EN.png)
+
+Figure 6. Eligible moving sequence with the largest B−M P95 increase. Spatial scales match Figure 5. Curves use the same target mask and native time.
 
 ## 4 Discussion
 
@@ -134,14 +148,14 @@ Supplementary Table S2. Fixed 1500-epoch frozen localization metrics by training
 
 | Condition | Mean (mm) | P95 (mm) | Coverage (%) | Accepted ≤0.5 mm (%) | Miss (%) | False contact (%) |
 |---|---:|---:|---:|---:|---:|---:|
-| 101 A | 0.234 | 0.534 | 97.90 | 91.68 | 0.96 | 2.15 |
-| 101 B | 0.307 | 0.862 | 96.44 | 86.56 | 2.12 | 1.80 |
+| 101 A | 0.234 | 0.534 | 97.90 | 90.72 | 0.96 | 2.15 |
+| 101 B | 0.307 | 0.862 | 96.44 | 85.22 | 2.12 | 1.80 |
 | 101 C | 4.120 | 6.548 | 100.00 | 0.34 | 0.00 | 100.00 |
-| 202 A | 0.234 | 0.532 | 97.94 | 91.57 | 0.97 | 2.12 |
-| 202 B | 0.289 | 0.730 | 96.90 | 86.72 | 1.75 | 2.12 |
+| 202 A | 0.234 | 0.532 | 97.94 | 90.63 | 0.97 | 2.12 |
+| 202 B | 0.289 | 0.730 | 96.90 | 85.43 | 1.75 | 2.12 |
 | 202 C | 6.634 | 9.296 | 100.00 | 0.47 | 0.00 | 100.00 |
-| 303 A | 0.236 | 0.531 | 97.95 | 91.32 | 0.95 | 2.10 |
-| 303 B | 0.288 | 0.712 | 96.83 | 86.42 | 1.65 | 1.91 |
+| 303 A | 0.236 | 0.531 | 97.95 | 90.36 | 0.95 | 2.10 |
+| 303 B | 0.288 | 0.712 | 96.83 | 85.12 | 1.65 | 1.91 |
 | 303 C | 5.817 | 8.476 | 100.00 | 0.21 | 0.00 | 100.00 |
 
 ![Supplementary Figure S1 Sequence error distributions](Sequence_distribution_EN.png)

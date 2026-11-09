@@ -7,3 +7,5 @@
 原五点资料：[CSML 定位器与冻结权重](https://github.com/googo2025/MagTouch-CSML/tree/02cd40217672b43e0860c9a902ea8b4f77f922ca)、[共享场磁重建](https://github.com/googo2025/magtouch-temporal-state-reconstruction/tree/ca291d4d5324ca4b0fd42658022761cd6cfb9602/methods/shared_field)、[装置与采集平台](https://github.com/googo2025/MagTouch-RA-3d-trajectory-recon/tree/acb12b054abb75be53636fc5f2b4496c61de149c)。
 
 仓库包含两版论文与图、去标识的逐序列评分、布局指标、训练与开发抽样点、统计和重绘代码。运行方法见[仓库首页](README.md)，指标定义见[数据字典](docs/protocol.md)。资料包从保存评分复现论文结果。原始帧和九组训练权重仍在项目归档。
+
+新增两组同序列轨迹图，比较五点实测与种子 101 的 A/B/C。图使用已保存的原始定位输出，选例规则、哈希和逐序列指标见[轨迹回执](data/trajectory_examples_receipt.json)。本次修正“接受且误差 ≤0.5 mm”的统计口径，B 为 85.26%。原始定位均误、P95、覆盖率和接触计数不受影响。

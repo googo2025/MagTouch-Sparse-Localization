@@ -10,7 +10,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 SEEDS = (101, 202, 303)
 FIELDS = ("mean_mm", "p95_mm", "coverage", "aligned_mean_mm",
-          "bad_accepted_fraction", "good_fraction")
+          "bad_accepted_fraction")
 SCALES = np.array((1, 1, 100, 1, 100, 100))
 
 
@@ -45,7 +45,10 @@ def load_scores():
             row, ref = rows[i], baseline[i]
             if (row["domain"], row["targets"]) != (ref["domain"], ref["targets"]):
                 raise ValueError(f"Denominator mismatch: {variant} / {i}")
-            matrix.append([float(row[k]) for k in FIELDS])
+            accepted_good = float(row["coverage"]) - float(row["bad_accepted_fraction"])
+            if accepted_good < -1e-12 or accepted_good > float(row["good_fraction"]) + 1e-12:
+                raise ValueError(f"Inconsistent accepted-and-accurate fraction: {variant} / {i}")
+            matrix.append([float(row[k]) for k in FIELDS] + [accepted_good])
             for k in ("eligible_contact", "eligible_nominal_lift", "missed_contact", "false_contact",
                       "unavailable_contact", "unavailable_nominal_lift"):
                 count[k] += int(row[k])
