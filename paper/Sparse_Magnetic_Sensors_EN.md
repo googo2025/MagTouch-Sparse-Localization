@@ -44,6 +44,12 @@ Intervals are descriptive and post hoc. We computed same-seed differences per se
 
 The apparatus repository [6] documents the magnet array, five triaxial Hall nodes and acquisition platform. The five-node CSML repository [4] provides the shared multi-indenter localizer, including inference code, frozen weights and normalization. The published shared weights have the same SHA-256 as the weights used for the frozen replay. Directly feeding measured five-node fields into this localizer defines localization reference M. The shared-field repository [5] describes the five-node reconstruction method and its epoch-529 result, which serves as the magnetic reconstruction reference. The two references address localization performance and field reconstruction quality, respectively.
 
+### 2.5 Matched trajectory displays by action
+
+The trajectory comparison uses seed 101 for A/B/C and direct five-node measurement for M. Acquisition labels identify grid indentation, multi-direction sweeps, circular scanning and combined XYZ motion. Original five-node display eligibility requires an original validation sequence, at least 100 eligible position targets, a nominal peak depth of at least 0.6 mm and nominal XY span of at least 2 mm on one axis. M and B both require at least 90% accepted coverage for a readable paired display. Continuous actions must also meet the XY span condition within a contiguous eligible segment. The combined XYZ segment must additionally have nominal depth variation of at least 0.3 mm. We select the eligible sequence closest to the median measured-input raw mean error within each action.
+
+Black lines or open circles show nominal references within the original shared position mask. Orange lines show raw outputs within that same mask when the original CSML rule accepts them: valid and finite inputs and outputs, contact and support probabilities of at least 0.5, and expected error of at most 0.5 mm. Shallow or off-surface withdrawal frames outside the original position mask are left as gaps. The 0.6 mm criterion refers to sequence peak depth for display eligibility. Eligible loading and withdrawal deviations remain visible, and false contacts on nominal lifted frames are counted in the contact diagnosis. Coordinates and time are shown as saved, without spatial translation, smoothing or temporal alignment.
+
 ## 3 Results
 
 ### 3.1 Layout changed field reconstruction cost and yielded a different localization choice
@@ -83,29 +89,36 @@ Table 1. Frozen localization at the fixed 1500-epoch endpoint. A, B and C are me
 
 Figure 4. Omitted-node supervision and downstream performance at fixed three-node input. (a) Node RMSE pooled over valid components for seed 202, with omitted input nodes shaded. (b) Accepted coverage and the fraction accepted within 0.5 mm, using the same eligible position targets.
 
-### 3.4 Matched trajectories for grid and continuous motions
+### 3.4 Three inputs with full supervision preserved continuous motion structure
 
-Figures 5–8 compare measured five-node input (M) with A, B and C at seed 101 across grid indentation, multi-direction straight sweeps, circular scanning and combined XYZ motion. Action labels come from the acquisition records. As in the earlier validation illustrations, display eligibility required at least 100 position targets, at least 0.6 mm nominal peak indentation and at least 2 mm nominal span on one XY axis. Accepted coverage had to reach 90% for both M and B. The continuous actions additionally had at least 2 mm XY span on one axis within a contiguous eligible segment. The combined XYZ segment also required at least 0.3 mm nominal depth variation. For each action, we selected the eligible sequence closest to the median measured-input raw mean error. All 97 sequences remain in the overall evaluation.
+Table 2 separates grid indentation from the three continuous actions. With three inputs and five supervised nodes, B retained the radial directions of straight sweeps, the closed circular path and depth changes during combined XYZ motion (Figs. 6–8). Across the three continuous examples, raw P95 increased by 0.088–0.224 mm, compared with 0.835 mm in the grid example (Fig. 5). These examples illustrate the errors within sequences. The overall evaluation retains all 97 sequences, and the four displays do not establish an action difficulty ranking.
 
-The displays use the original five-node CSML position mask for the reference. Predicted coordinates appear within that mask when the input and output are valid and finite, contact and support probabilities both reach 0.5, and expected error is at most 0.5 mm. Shallow contacts or off-surface withdrawal frames outside the original position mask, and outputs rejected by the original rule, appear as gaps. The 0.6 mm threshold applies to peak depth for sequence selection. Errors during eligible loading and withdrawal remain visible, and false contacts on nominal lifted frames remain in the contact diagnosis. All action panels use common spatial axes and their native timing. The plotted coordinates are unaligned and unsmoothed.
+C achieved 100% accepted coverage on all four displayed sequences, yet its circular loop and combined XYZ path were visibly distorted. The trajectory evidence complements the aggregate contact-error diagnosis. Supplementary Fig. S3 presents a high-penalty grid sequence. Supplementary Fig. S4 shows the same sequence as Fig. 8 in an orthographic three-dimensional view.
 
-In the illustrated continuous actions, B retained the radial structure of the straight sweeps, the circular path and the depth variation of the combined XYZ motion. Across the four displayed sequences, B increased raw P95 over M by 0.835, 0.224, 0.088 and 0.142 mm, respectively. C had 100% accepted coverage on eligible targets for all four yet exhibited visibly distorted paths. Supplementary Fig. S3 retains the high-penalty grid example and Supplementary Fig. S4 shows the same combined XYZ sequence in three dimensions.
+Table 2. Paired results for the four displayed actions. Mean-error cells give raw / constant-offset diagnostic means in mm. P95 values are raw. M uses five measured nodes, and B uses three inputs with five supervised nodes. All estimates use the same eligible targets within sequence.
+
+| Motion | Targets | M mean (mm) | B mean (mm) | M P95 (mm) | B P95 (mm) | B coverage (%) |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Grid indentation | 2213 | 0.432 / 0.373 | 0.614 / 0.572 | 1.038 | 1.873 | 93.0 |
+| Multi-direction sweeps | 4421 | 0.193 / 0.185 | 0.283 / 0.252 | 0.369 | 0.593 | 99.5 |
+| Circular scanning | 2591 | 0.195 / 0.191 | 0.251 / 0.249 | 0.425 | 0.513 | 99.7 |
+| Combined XYZ motion | 474 | 0.167 / 0.125 | 0.265 / 0.214 | 0.315 | 0.458 | 99.8 |
 
 ![Figure 5 Grid indentation](Motion_grid_EN.png)
 
-Figure 5. Grid indentation. The top row shows equal-scale XY and the bottom row shows indentation on the native timeline. Columns report raw and constant-offset diagnostic means and accepted coverage.
+Figure 5. Grid indentation. Open circles mark nominal indentation sites. The top row shows equal-scale XY and the bottom row shows indentation on the native timeline.
 
-![Figure 6 Multi-direction straight sweeps](Motion_lines_EN.png)
+![Figure 6 Multi-direction sweeps](Motion_lines_EN.png)
 
-Figure 6. Multi-direction straight sweeps. The top row shows equal-scale XY and the bottom row shows indentation on the native timeline. Columns report raw and constant-offset diagnostic means and accepted coverage.
+Figure 6. Multi-direction sweeps. The black radial lines mark nominal sweep directions. The top row shows equal-scale XY and the bottom row shows indentation on the native timeline.
 
 ![Figure 7 Circular scanning](Motion_circle_EN.png)
 
-Figure 7. Circular scanning. The top row shows equal-scale XY and the bottom row shows indentation on the native timeline. Columns report raw and constant-offset diagnostic means and accepted coverage.
+Figure 7. Circular scanning. The XY view shows the closed circular path, paired with the nominal and estimated depth on the original timeline. The top row shows equal-scale XY and the bottom row shows indentation on the native timeline.
 
 ![Figure 8 Combined XYZ motion](Motion_xyz_EN.png)
 
-Figure 8. Combined XYZ motion. The top row shows equal-scale XY and the bottom row shows indentation on the native timeline. Columns report raw and constant-offset diagnostic means and accepted coverage.
+Figure 8. Combined XYZ motion. XY and native-time depth show the position and indentation variation. Supplementary Fig. S4 shows the orthographic three-dimensional view. The top row shows equal-scale XY and the bottom row shows indentation on the native timeline.
 
 ## 4 Discussion
 
