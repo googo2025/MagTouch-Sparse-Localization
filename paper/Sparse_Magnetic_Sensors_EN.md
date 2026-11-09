@@ -83,19 +83,29 @@ Table 1. Frozen localization at the fixed 1500-epoch endpoint. A, B and C are me
 
 Figure 4. Omitted-node supervision and downstream performance at fixed three-node input. (a) Node RMSE pooled over valid components for seed 202, with omitted input nodes shaded. (b) Accepted coverage and the fraction accepted within 0.5 mm, using the same eligible position targets.
 
-### 3.4 Matched trajectories show where errors occur
+### 3.4 Matched trajectories for grid and continuous motions
 
-Figures 5 and 6 compare measured five-node input (M) with A, B and C at seed 101 against a common nominal reference. Eligible display sequences had at least 300 position targets, at least 90% accepted coverage for both M and B, at least 4 mm nominal span on one XY axis and at least 0.5 mm maximum absolute nominal indentation. Among 27 such sequences, we selected the hemispherical sequence closest to the median B−M raw P95 increase and the rounded sequence with the largest increase. Selection is for display. The overall evaluation retains all 97 sequences.
+Figures 5–8 compare measured five-node input (M) with A, B and C at seed 101 across grid indentation, multi-direction straight sweeps, circular scanning and combined XYZ motion. Action labels come from the acquisition records. As in the earlier validation illustrations, display eligibility required at least 100 position targets, at least 0.6 mm nominal peak indentation and at least 2 mm nominal span on one XY axis. Accepted coverage had to reach 90% for both M and B. The continuous actions additionally had at least 2 mm XY span on one axis within a contiguous eligible segment. The combined XYZ segment also required at least 0.3 mm nominal depth variation. For each action, we selected the eligible sequence closest to the median measured-input raw mean error. All 97 sequences remain in the overall evaluation.
 
-In the typical hemispherical sequence, B increased P95 by 0.105 mm relative to measured input. In the high-penalty rounded sequence, B increased P95 by 1.704 mm, showing that larger errors can concentrate in particular segments. C could be accepted continuously despite deviating from both the nominal XY path and indentation profile. Plots show raw coordinates and leave gaps at rejected frames. Sequence metrics use the same eligible targets across variants.
+The displays use the original five-node CSML position mask for the reference. Predicted coordinates appear within that mask when the input and output are valid and finite, contact and support probabilities both reach 0.5, and expected error is at most 0.5 mm. Shallow contacts or off-surface withdrawal frames outside the original position mask, and outputs rejected by the original rule, appear as gaps. The 0.6 mm threshold applies to peak depth for sequence selection. Errors during eligible loading and withdrawal remain visible, and false contacts on nominal lifted frames remain in the contact diagnosis. All action panels use common spatial axes and their native timing. The plotted coordinates are unaligned and unsmoothed.
 
-![Figure 5 Typical hemispherical trajectory](Trajectory_median_EN.png)
+In the illustrated continuous actions, B retained the radial structure of the straight sweeps, the circular path and the depth variation of the combined XYZ motion. Across the four displayed sequences, B increased raw P95 over M by 0.835, 0.224, 0.088 and 0.142 mm, respectively. C had 100% accepted coverage on eligible targets for all four yet exhibited visibly distorted paths. Supplementary Fig. S3 retains the high-penalty grid example and Supplementary Fig. S4 shows the same combined XYZ sequence in three dimensions.
 
-Figure 5. Typical moving hemispherical sequence. The top row shows equal-scale XY and the bottom row shows indentation on the native timeline. All variants share axes. Headings report raw and constant-offset diagnostic means and accepted coverage.
+![Figure 5 Grid indentation](Motion_grid_EN.png)
 
-![Figure 6 High-penalty rounded trajectory](Trajectory_tail_EN.png)
+Figure 5. Grid indentation. The top row shows equal-scale XY and the bottom row shows indentation on the native timeline. Columns report raw and constant-offset diagnostic means and accepted coverage.
 
-Figure 6. Eligible moving sequence with the largest B−M P95 increase. Spatial scales match Figure 5. Curves use the same target mask and native time.
+![Figure 6 Multi-direction straight sweeps](Motion_lines_EN.png)
+
+Figure 6. Multi-direction straight sweeps. The top row shows equal-scale XY and the bottom row shows indentation on the native timeline. Columns report raw and constant-offset diagnostic means and accepted coverage.
+
+![Figure 7 Circular scanning](Motion_circle_EN.png)
+
+Figure 7. Circular scanning. The top row shows equal-scale XY and the bottom row shows indentation on the native timeline. Columns report raw and constant-offset diagnostic means and accepted coverage.
+
+![Figure 8 Combined XYZ motion](Motion_xyz_EN.png)
+
+Figure 8. Combined XYZ motion. The top row shows equal-scale XY and the bottom row shows indentation on the native timeline. Columns report raw and constant-offset diagnostic means and accepted coverage.
 
 ## 4 Discussion
 
@@ -165,5 +175,13 @@ Supplementary Figure S1. Error distributions. (a) Equal-domain cumulative distri
 ![Supplementary Figure S2 Shared-node training and development snapshots](Training_dev_samples_EN.png)
 
 Supplementary Figure S2. Common S235 TRAIN and DEV field error for B/C. Each arm shows 137–168 saved complete-epoch snapshots, including epochs 1 and 1500. Missing epochs are left unsampled.
+
+![Supplementary Figure S3 High-penalty grid sequence](Trajectory_tail_EN.png)
+
+Supplementary Figure S3. Rounded-indenter grid sequence with the largest raw P95 increase in the earlier display pool (B−M, 1.704 mm). It was selected separately from the action-wise median used in Figure 5.
+
+![Supplementary Figure S4 Three-dimensional combined XYZ trajectory](Motion_xyz_3d_EN.png)
+
+Supplementary Figure S4. Orthographic view of the same sequence as Figure 8, with common viewing angles, physical axes, reference and acceptance masks.
 
 Evidence includes the November 1 layout synthesis and its candidate record, the 13-model reconstruction summary, and per-sequence scoring receipts from the frozen 1500-epoch localization replay. The supplementary statistical analysis uses previously accepted scores and field scalars. The primary comparisons use the fixed 1500-epoch results.
